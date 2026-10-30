@@ -1,0 +1,34 @@
+name: Probe called
+
+# Throwaway. Answers three questions the shared Plugin Check workflow depends on, before any of it
+# is written: which workflow file GITHUB_WORKFLOW_REF names inside a called workflow, whether an
+# artifact uploaded here is listed under the caller's run, and whether a job asking for write
+# access still starts on a pull request from a fork.
+
+on:
+  workflow_call:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Print what the called workflow sees
+        env:
+          WORKFLOW_REF_CONTEXT: ${{ github.workflow_ref }}
+        run: |
+          echo "GITHUB_WORKFLOW_REF=$GITHUB_WORKFLOW_REF"
+          echo "github.workflow_ref=$WORKFLOW_REF_CONTEXT"
+          echo "GITHUB_EVENT_NAME=$GITHUB_EVENT_NAME"
+          ref=${GITHUB_WORKFLOW_REF%%@*}
+          echo "File name fetch-baseline.sh would get: ${ref##*/}"
+          mkdir -p "$RUNNER_TEMP/report"
+          echo '{"errors":{},"warnings":{}}' > "$RUNNER_TEMP/report/baseline.json"
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: plugin-check-report
+          path: ${{ runner.temp }}/report
