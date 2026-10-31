@@ -18,7 +18,6 @@ jobs:
       pull-requests: write
     uses: stellarwp/plugin-toolbox/.github/workflows/playground-preview.yml@tmp/playground-preview-fork-test
     with:
-      zip-url: https://downloads.wordpress.org/plugin/hello-dolly.1.7.2.zip
       blueprints: |
         .github/playground/blueprint.json
         .github/playground/blueprint-sample-data.json
