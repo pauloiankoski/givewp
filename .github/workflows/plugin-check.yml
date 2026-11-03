@@ -25,7 +25,7 @@ jobs:
       plugin-slug: give
       runs-on: ubuntu-latest
       cache-paths: .cache/webpack
-
+      mode: ratchet
       exclude-checks: |
         enqueued_scripts_scope
         enqueued_scripts_size
