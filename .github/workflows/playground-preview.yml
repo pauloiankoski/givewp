@@ -19,3 +19,4 @@ jobs:
     uses: stellarwp/plugin-toolbox/.github/workflows/playground-preview.yml@feat/playground-preview
     with:
       zip-url: https://downloads.wordpress.org/plugin/hello-dolly.1.7.2.zip
+# second push
