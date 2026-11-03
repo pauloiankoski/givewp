@@ -25,14 +25,6 @@ jobs:
       plugin-slug: give
       runs-on: ubuntu-latest
       cache-paths: .cache/webpack
-      build-command: |
-        sleep 480
-        composer run -q pup > /dev/null
-        composer -- pup build
-        version=$(php -d display_errors=0 bin/pup.phar get-version --dev)
-        composer -- pup package "$version"
-        name=$(php -d display_errors=0 bin/pup.phar zip-name "$version")
-        unzip -q "$name.zip" -d "$PLUGIN_CHECK_BUILD_DIR"
 
       exclude-checks: |
         enqueued_scripts_scope
