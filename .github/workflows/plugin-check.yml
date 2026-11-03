@@ -20,7 +20,7 @@ jobs:
       contents: read
       issues: write
       pull-requests: write
-    uses: stellarwp/plugin-toolbox/.github/workflows/plugin-check.yml@789939524656250b385be1b01bfcdf5ae7d926c0
+    uses: stellarwp/plugin-toolbox/.github/workflows/plugin-check.yml@tmp/pc-js-verify
     with:
       plugin-slug: give
       runs-on: ubuntu-latest
