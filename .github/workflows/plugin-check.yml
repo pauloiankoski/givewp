@@ -32,6 +32,9 @@ jobs:
         uses: stellarwp/plugin-toolbox/.github/workflows/plugin-check.yml@feat/plugin-check-lint
         with:
             plugin-slug: give
+            build-command: |
+                mkdir -p "$PLUGIN_CHECK_BUILD_DIR/give"
+                printf '<?php\n/**\n * Plugin Name: Give\n * Version: 1.0.0\n */\n' > "$PLUGIN_CHECK_BUILD_DIR/give/give.php"
             runs-on: ubuntu-latest
             # webpack's filesystem cache (see webpack.config.js). Outside node_modules, because pup
             # build runs npm ci and npm ci deletes node_modules first.
