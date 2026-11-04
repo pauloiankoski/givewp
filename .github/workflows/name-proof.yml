@@ -1,0 +1,19 @@
+name: Name proof
+on:
+    workflow_dispatch:
+jobs:
+    name:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v7
+            -   uses: shivammathur/setup-php@v2
+                with:
+                    php-version: '8.3'
+                    coverage: none
+            -   id: n
+                uses: stellarwp/plugin-toolbox/.github/actions/zip-name@feat/playground-preview
+                with:
+                    production: 'no'
+                    prerelease: dev
+                    pup-version: '2.0.0'
+            -   run: echo "${{ steps.n.outputs.zip-name }} / ${{ steps.n.outputs.version }}"
