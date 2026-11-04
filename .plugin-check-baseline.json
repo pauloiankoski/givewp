@@ -1,6 +1,6 @@
 {
   "errors": {
-    "Generic.PHP.ForbiddenFunctions.Found": 2,
+    "Generic.PHP.ForbiddenFunctions.Found": 3,
     "PluginCheck.CodeAnalysis.Heredoc.NotAllowed": 4,
     "PluginCheck.CodeAnalysis.Localhost.Found": 1,
     "PluginCheck.CodeAnalysis.Offloading.OffloadedContent": 3,
