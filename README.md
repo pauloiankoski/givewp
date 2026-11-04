@@ -108,3 +108,5 @@ The `--require` flag is needed: without it, WP-CLI does not know the `plugin che
 checkout has files the release zip leaves out (tests, dotfiles, docs), so some `plugin_repo`
 counts are higher locally than in CI. For a quick loop on one rule, add for example
 `--checks=late_escaping`.
+
+Plugin Check test A.
