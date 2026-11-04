@@ -22,7 +22,7 @@ jobs:
     uses: stellarwp/plugin-toolbox/.github/workflows/plugin-check.yml@tmp/pc-bl-verify
     with:
       plugin-slug: give
-      mode: baseline
+      mode: strict
       cache-paths: .cache/webpack
       exclude-checks: |
         enqueued_scripts_scope
